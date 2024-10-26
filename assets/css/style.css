@@ -1,0 +1,209 @@
+/* Kontainer Utama */
+.container {
+    width: 360px;
+    height: 640px;
+    max-width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header, .chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFA500;
+    padding: 10px;
+    color: #fff;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Kontak */
+.contact {
+    padding: 10px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.online { background-color: green; }
+.offline { background-color: orange; }
+.blocked-status { background-color: black; }
+
+.contact-info p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.contact-info small {
+    color: gray;
+    font-size: 12px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 16px;
+    background-color: #FFA500;
+    position: sticky;
+    bottom: 0;
+    margin-top: auto;
+}
+
+.footer button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.footer-text {
+    text-align: center;
+    color: #b0b0b0;
+    font-size: 12px;
+    margin-top: 0px;
+}
+
+.chat-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.profile-pic {
+    width: 35px;
+    height: 35px;
+    background-color: #ddd;
+    border-radius: 50%;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFA500;
+    padding: 15px 10px;
+    color: #fff;
+}
+
+.chat-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.chat-info .info p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.chat-info .info small {
+    color: #f0f0f0;
+    font-size: 12px;
+}
+
+.chat-body {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+
+.message {
+    padding: 8px 12px;
+    border-radius: 15px;
+    margin-bottom: 8px;
+    max-width: 80%;
+    font-size: 14px;
+}
+
+.sent {
+    background-color: #FFA500;
+    align-self: flex-end;
+    color: white;
+    margin-left: 200px; /* Add space from the right */
+}
+
+.received {
+    background-color: #eee;
+    align-self: flex-start;
+    margin-right: 150px; /* Add space from the left */
+}
+
+.chat-footer {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #f0f0f0;
+    gap: 5px;
+}
+
+.chat-footer input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    background-color: #fff;
+    font-size: 14px;
+}
+
+.chat-footer button {
+    background: none;
+    border: none;
+    color: gray;
+    font-size: 18px;
+    cursor: pointer;
+    width: 24px; /* Ukuran tetap untuk lebar */
+    height: 24px; /* Ukuran tetap untuk tinggi */
+}
+
+.send-button {
+    background-color: transparent; /* Awal tanpa latar belakang */
+    border: none; /* Tanpa border */
+    padding: 0; /* Menghilangkan padding */
+}
+
+.send-button img {
+    width: 24px; /* Ukuran tetap untuk lebar ikon */
+    height: 24px; /* Ukuran tetap untuk tinggi ikon */
+    transition: all 0.3s; /* Efek transisi untuk hover */
+}
+
+.send-button:hover {
+    background-color: rgb(255, 166, 0); /* Warna latar belakang saat hover */
+    border-radius: 50%; /* Membulatkan sudut */
+}
+
+.send-button:hover img {
+    filter: brightness(1.5); /* Meningkatkan kecerahan saat hover */
+    opacity: 0.8; /* Mengurangi opasitas saat hover */
+}

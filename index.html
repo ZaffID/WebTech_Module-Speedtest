@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=360, initial-scale=1.0">
+    <title>Together Chat - Contacts</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>T.Chat</h1>
+        </div>
+        <div class="contact">
+            <div class="contact-item" onclick="openChat()">
+                <span class="status online"></span>
+                <div class="contact-info">
+                    <p>Username</p>
+                    <small>Online</small>
+                </div>
+            </div>
+            <div class="contact-item" onclick="openChat()">
+                <span class="status offline"></span>
+                <div class="contact-info">
+                    <p>Username</p>
+                    <small>Offline</small>
+                </div>
+            </div>
+            <div class="contact-item blocked" onclick="openChat()">
+                <span class="status blocked-status"></span>
+                <div class="contact-info">
+                    <p>Username</p>
+                    <small>Blocked</small>
+                </div>
+            </div>
+        </div>
+        <p class="footer-text">Your contact ends here.</p>
+        <div class="footer">
+            <button>Chat</button>
+            <button>Status</button>
+            <button>Add</button>
+        </div>
+    </div>
+
+    <script src="assets/js/jsnya.js"></script>
+</body>
+</html>
