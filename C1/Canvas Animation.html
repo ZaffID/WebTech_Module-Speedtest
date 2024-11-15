@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color:  #393E46;
+        }
+        canvas {
+            background-color: rgb(78, 237, 195);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="320"></canvas>
+    <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+
+        let x = 20; // posisi awal lingkaran di sumbu x
+        const y = canvas.height / 2; // posisi tetap di sumbu y (tengah)
+        const radius = 10;
+        const speed = 5;
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // bersihkan canvas
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2); // gambar lingkaran
+            ctx.fillStyle = "white";
+            ctx.fill();
+            ctx.closePath();
+
+            x += speed; // geser lingkaran ke kanan
+            if (x - radius > canvas.width) {
+                x = -radius; // reset posisi lingkaran ke kiri
+            }
+
+            requestAnimationFrame(animate); // panggil ulang fungsi animate
+        }
+
+        animate(); // mulai animasi saat halaman dimuat
+    </script>
+</body>
+</html>
