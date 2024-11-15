@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slicer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+        }
+
+        #sliced-container {
+            display: grid;
+            grid-gap: 5px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .slice {
+            cursor: pointer;
+            transition: opacity 0.3s ease-out;
+        }
+
+        .slice.fade {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="input-container">
+        <label for="xInput">X: </label>
+        <input type="number" id="xInput" min="1" placeholder="Enter number of columns">
+        <label for="yInput">Y: </label>
+        <input type="number" id="yInput" min="1" placeholder="Enter number of rows">
+        <button id="sliceBtn">Slice</button>
+    </div>
+
+    <div id="sliced-container"></div>
+
+    <script>
+        const sliceButton = document.getElementById('sliceBtn');
+        const slicedContainer = document.getElementById('sliced-container');
+        const xInput = document.getElementById('xInput');
+        const yInput = document.getElementById('yInput');
+
+        sliceButton.addEventListener('click', () => {
+            const x = parseInt(xInput.value);
+            const y = parseInt(yInput.value);
+            
+            if (isNaN(x) || isNaN(y) || x <= 0 || y <= 0) {
+                alert('Please enter valid numbers for rows and columns.');
+                return;
+            }
+
+            // Clear any previous slices
+            slicedContainer.innerHTML = '';
+
+            const image = new Image();
+            image.src = 'image.jpg';  // Set your image path here
+            image.onload = () => {
+                const imageWidth = image.width;
+                const imageHeight = image.height;
+                const sliceWidth = Math.ceil(imageWidth / x);
+                const sliceHeight = Math.ceil(imageHeight / y);
+
+                // Set up the grid display
+                slicedContainer.style.gridTemplateColumns = `repeat(${x}, ${sliceWidth}px)`;
+                slicedContainer.style.gridTemplateRows = `repeat(${y}, ${sliceHeight}px)`;
+
+                // Create slices
+                for (let row = 0; row < y; row++) {
+                    for (let col = 0; col < x; col++) {
+                        const slice = document.createElement('div');
+                        slice.classList.add('slice');
+                        slice.style.backgroundImage = `url('${image.src}')`;
+                        slice.style.backgroundPosition = `-${col * sliceWidth}px -${row * sliceHeight}px`;
+                        slice.style.width = `${sliceWidth}px`;
+                        slice.style.height = `${sliceHeight}px`;
+
+                        slice.addEventListener('click', () => {
+                            slice.classList.add('fade');
+                        });
+
+                        slicedContainer.appendChild(slice);
+                    }
+                }
+            };
+        });
+    </script>
+
+</body>
+</html>
